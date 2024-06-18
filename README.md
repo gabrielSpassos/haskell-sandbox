@@ -17,3 +17,7 @@ ghci
 ```bash
 cabal init --interactive
 ```
+
+### Docs
+
+- https://www.haskell.org/documentation/
