@@ -21,3 +21,4 @@ cabal init --interactive
 ### Docs
 
 - https://www.haskell.org/documentation/
+- https://learnyouahaskell.com/chapters
