@@ -28,3 +28,17 @@ ghci> take 7 (filter odd [33..])
 ghci> sum it
 273
 ```
+
+6. Negative numbers
+```haskell
+ghci> 5 * -3
+<interactive>:3:1: error:
+    Precedence parsing error
+        cannot mix ‘*’ [infixl 7] and prefix `-' [infixl 6] in the same infix expression
+```
+
+7. Negative numbers fix
+```haskell
+ghci> 5 * (-3)
+-15
+```
