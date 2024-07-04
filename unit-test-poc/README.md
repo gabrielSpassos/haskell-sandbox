@@ -8,3 +8,8 @@
 ```bash
 cabal init 
 ```
+
+2. Execute tests
+```bash
+cabal test
+```
