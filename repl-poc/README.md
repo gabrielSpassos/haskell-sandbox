@@ -42,3 +42,10 @@ ghci> 5 * -3
 ghci> 5 * (-3)
 -15
 ```
+
+8. Create variable on repl
+```haskell
+ghci> let lostNumbers = [4,8,15,16,23,42]
+ghci> lostNumbers
+[4,8,15,16,23,42]
+```
