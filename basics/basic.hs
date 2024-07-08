@@ -11,13 +11,7 @@ main = do
     putStrLn ("Min between 3.2 and 3.1: " ++ show (minimal 3.2 3.1))
     putStrLn ("Max between 3.2 and 3.1: " ++ show (Main.maximum 3.2 3.1))
     putStrLn ("Custom Add 3.2 and 3.1: " ++ show (customAdd 3.2 3.1))
-    putStrLn ("Add on end of list:" ++ show addList)
-    putStrLn ("Add on start of list:" ++ show addStartList)
-    putStrLn ("Numbers: " ++ show numbers ++ " numbers[1]: " ++ show secondItemFromNumbers)
-    putStrLn ("Numbers first element: " ++ show firstElement)
-    putStrLn ("Numbers last element: " ++ show lastElement)
-    putStrLn ("Numbers without first element: " ++ show listWithoutFirst)
-    putStrLn ("Numbers without last element: " ++ show listWithoutLast)
+    listFunctions
 
 -- create function
 factorial 0 = 1
@@ -59,3 +53,18 @@ firstElement = head numbers
 lastElement = last numbers
 listWithoutFirst = tail numbers
 listWithoutLast = init numbers
+
+listFunctions = do
+    putStrLn ("Add on end of list:" ++ show addList)
+    putStrLn ("Add on start of list:" ++ show addStartList)
+    putStrLn ("Numbers: " ++ show numbers ++ " numbers[1]: " ++ show secondItemFromNumbers)
+    putStrLn ("Numbers first element: " ++ show firstElement)
+    putStrLn ("Numbers last element: " ++ show lastElement)
+    putStrLn ("Numbers without first element: " ++ show listWithoutFirst)
+    putStrLn ("Numbers without last element: " ++ show listWithoutLast)
+    putStrLn ("Numbers size: " ++ show (length numbers))
+    putStrLn ("Is numbers empty? " ++ show (null numbers) ++ ". Is [] empty? " ++ show (null []))
+    putStrLn ("Reverse numbers: " ++ show (reverse numbers))
+    putStrLn ("Take first 3 numbers: " ++ show (take 3 numbers))
+    putStrLn ("Take first 5 numbers: " ++ show (take 5 numbers))
+    putStrLn ("Take first 0 numbers: " ++ show (take 0 numbers))
