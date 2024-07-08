@@ -14,6 +14,7 @@ main = do
     listFunctions
     rangeFunctions
     listComprehensionFunctions
+    tupleFunctions
 
 -- create function
 factorial 0 = 1
@@ -97,3 +98,12 @@ listComprehensionFunctions = do
     putStrLn ("Function on list comprehension:" ++ show ([if x < 10 then "BOOM!" else "BANG!" | x <- [7..13], odd x]))
     putStrLn ("Two list comprehension: " ++ show ([x + y | x <- [2,4..10], y <- [1,3..10], x + y > 10]))
     putStrLn ("Nested lists: " ++ show ([[x | x <- xs, even x] | xs <- xxs]))
+
+tupleFunctions = do
+    putStrLn "Tuples"
+    putStrLn ("First item of pair: " ++ show (fst (8,11)))
+    putStrLn ("Second item of pair: " ++ show (snd ("FOO",True)))
+    putStrLn ("Combine lists into pairs: " ++ show (zip [1..5] ["one", "two", "three", "four", "five"]))
+    putStrLn ("Combine different size lists into pairs: " ++ show (zip [1..10] ["Hello", "World", "!"]))
+    putStrLn ("Combine infinite and finite lists into pairs: " ++ show (zip [100..] ["apple", "bannana", "grape"]))
+    putStrLn ("Triangle with perimeter is 24:" ++ show ([(a,b,c) | c <- [1..10], b <- [1..c], a <- [1..b], a^2 + b^2 == c^2, a+b+c == 24]))
