@@ -12,6 +12,7 @@ main = do
     putStrLn ("Max between 3.2 and 3.1: " ++ show (customMax 3.2 3.1))
     putStrLn ("Custom Add 3.2 and 3.1: " ++ show (customAdd 3.2 3.1))
     listFunctions
+    rangeFunctions
 
 -- create function
 factorial 0 = 1
@@ -70,3 +71,15 @@ listFunctions = do
     putStrLn ("Multiply numbers: " ++ show (product numbers))
     putStrLn ("Check if 3 is on numbers list: " ++ show (3 `elem` numbers))
     putStrLn ("Check if 7 is on numbers list: " ++ show (7 `elem` numbers))
+
+rangeFunctions = do
+    putStrLn ("Numbers sequence: " ++ show [1..20])
+    putStrLn ("Alphabet sequence: " ++ show ['a'..'z'])
+    putStrLn ("Letters sequence: " ++ show ['L'..'Z'])
+    putStrLn ("Even numbers sequence: " ++ show [2,4..20])
+    putStrLn ("Numbers sequence 3 by 3: " ++ show [0,3..20])
+    putStrLn ("Reverse numbers sequence:" ++ show [20,19..1])
+    putStrLn ("Take 12 first responses from infinite list:" ++ show (take 12 [13,26..]))
+    putStrLn ("Create cycle: " ++ show (take 9 (cycle [1, 2, 3])))
+    putStrLn ("Repeat element: " ++ show (take 4 (repeat 0)))
+    putStrLn ("Replicate element: " ++ show (replicate 4 0))
