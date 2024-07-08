@@ -9,7 +9,7 @@ main = do
     putStrLn ("5 + 4.0: " ++ show add)
     putStrLn ("Successor of 99: " ++ show (successor 99))
     putStrLn ("Min between 3.2 and 3.1: " ++ show (minimal 3.2 3.1))
-    putStrLn ("Max between 3.2 and 3.1: " ++ show (Main.maximum 3.2 3.1))
+    putStrLn ("Max between 3.2 and 3.1: " ++ show (customMax 3.2 3.1))
     putStrLn ("Custom Add 3.2 and 3.1: " ++ show (customAdd 3.2 3.1))
     listFunctions
 
@@ -33,8 +33,8 @@ notEquals = 7 /= 8
 add = 5 + 4.0
 successor n = succ n
 minimal x y = min x y
-maximum x y = max x y
-customAdd x y = (minimal x y) + (Main.maximum x y) + 1
+customMax x y = max x y
+customAdd x y = (minimal x y) + (customMax x y) + 1
 
 -- if expression, must have else
 doubleIfSmallerThanTen x = if x > 10
@@ -43,28 +43,30 @@ doubleIfSmallerThanTen x = if x > 10
 
 -- list
 numbers = [1,2,3,4]
--- will add the right list on end of left list
-addList = numbers ++ [9,10,11,12,3]
--- will add the left list on start of right list
-addStartList = ['H', 'E']:["LLO"]
--- get item from list by index
-secondItemFromNumbers = numbers !! 1
-firstElement = head numbers
-lastElement = last numbers
-listWithoutFirst = tail numbers
-listWithoutLast = init numbers
 
 listFunctions = do
-    putStrLn ("Add on end of list:" ++ show addList)
-    putStrLn ("Add on start of list:" ++ show addStartList)
-    putStrLn ("Numbers: " ++ show numbers ++ " numbers[1]: " ++ show secondItemFromNumbers)
-    putStrLn ("Numbers first element: " ++ show firstElement)
-    putStrLn ("Numbers last element: " ++ show lastElement)
-    putStrLn ("Numbers without first element: " ++ show listWithoutFirst)
-    putStrLn ("Numbers without last element: " ++ show listWithoutLast)
+    -- will add the right list on end of left list
+    putStrLn ("Add on end of list:" ++ show (numbers ++ [9,10,11,12,3]))
+    -- will add the left list on start of right list
+    putStrLn ("Add on start of list:" ++ show (['H', 'E']:["LLO"]))
+    -- get item from list by index
+    putStrLn ("Numbers: " ++ show numbers ++ " numbers[1]: " ++ show (numbers !! 1))
+    putStrLn ("Numbers first element: " ++ show (head numbers))
+    putStrLn ("Numbers last element: " ++ show (last numbers))
+    putStrLn ("Numbers without first element: " ++ show (tail numbers))
+    putStrLn ("Numbers without last element: " ++ show (init numbers))
     putStrLn ("Numbers size: " ++ show (length numbers))
     putStrLn ("Is numbers empty? " ++ show (null numbers) ++ ". Is [] empty? " ++ show (null []))
     putStrLn ("Reverse numbers: " ++ show (reverse numbers))
     putStrLn ("Take first 3 numbers: " ++ show (take 3 numbers))
     putStrLn ("Take first 5 numbers: " ++ show (take 5 numbers))
     putStrLn ("Take first 0 numbers: " ++ show (take 0 numbers))
+    putStrLn ("Drop first 3 numbers: " ++ show (drop 3 numbers))
+    putStrLn ("Drop first 5 numbers: " ++ show (drop 5 numbers))
+    putStrLn ("Drop first 0 numbers: " ++ show (drop 0 numbers))
+    putStrLn ("Min of numbers: " ++ show (minimum numbers))
+    putStrLn ("Max of numbers: " ++ show (maximum numbers))
+    putStrLn ("Sum numbers: " ++ show (sum numbers))
+    putStrLn ("Multiply numbers: " ++ show (product numbers))
+    putStrLn ("Check if 3 is on numbers list: " ++ show (3 `elem` numbers))
+    putStrLn ("Check if 7 is on numbers list: " ++ show (7 `elem` numbers))
