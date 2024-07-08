@@ -22,3 +22,6 @@ cabal init --interactive
 
 - https://www.haskell.org/documentation/
 - https://learnyouahaskell.com/chapters
+    - [X] https://learnyouahaskell.com/introduction
+    - [X] https://learnyouahaskell.com/starting-out
+    - [ ] https://learnyouahaskell.com/types-and-typeclasses
