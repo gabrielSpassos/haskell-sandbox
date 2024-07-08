@@ -13,6 +13,7 @@ main = do
     putStrLn ("Custom Add 3.2 and 3.1: " ++ show (customAdd 3.2 3.1))
     listFunctions
     rangeFunctions
+    listComprehensionFunctions
 
 -- create function
 factorial 0 = 1
@@ -46,6 +47,7 @@ doubleIfSmallerThanTen x = if x > 10
 numbers = [1,2,3,4]
 
 listFunctions = do
+    putStrLn "Lists"
     -- will add the right list on end of left list
     putStrLn ("Add on end of list:" ++ show (numbers ++ [9,10,11,12,3]))
     -- will add the left list on start of right list
@@ -73,6 +75,7 @@ listFunctions = do
     putStrLn ("Check if 7 is on numbers list: " ++ show (7 `elem` numbers))
 
 rangeFunctions = do
+    putStrLn "Ranges"
     putStrLn ("Numbers sequence: " ++ show [1..20])
     putStrLn ("Alphabet sequence: " ++ show ['a'..'z'])
     putStrLn ("Letters sequence: " ++ show ['L'..'Z'])
@@ -83,3 +86,14 @@ rangeFunctions = do
     putStrLn ("Create cycle: " ++ show (take 9 (cycle [1, 2, 3])))
     putStrLn ("Repeat element: " ++ show (take 4 (repeat 0)))
     putStrLn ("Replicate element: " ++ show (replicate 4 0))
+
+xxs = [[1,3,5,2,3,1,2,4,5],[1,2,3,4,5,6,7,8,9],[1,2,4,2,1,6,3,1,3,2,3,6]]
+listComprehensionFunctions = do
+    putStrLn "List Comprehension"
+    putStrLn ("Get double of numbers: " ++ show ([x*2 | x <- [1..10]]))
+    putStrLn ("Get double of numbers, if double >= 14: " ++ show ([x*2 | x <- [1..10], x*2 >= 14]))
+    putStrLn ("Numbers that the X/7 the remainder == 3: " ++ show ([x | x <- [50..100], x `mod` 7 == 3]))
+    putStrLn ("Several predicates: " ++ show ([x | x <- [10..20], x /= 13, x /= 17, x/= 15 ]))
+    putStrLn ("Function on list comprehension:" ++ show ([if x < 10 then "BOOM!" else "BANG!" | x <- [7..13], odd x]))
+    putStrLn ("Two list comprehension: " ++ show ([x + y | x <- [2,4..10], y <- [1,3..10], x + y > 10]))
+    putStrLn ("Nested lists: " ++ show ([[x | x <- xs, even x] | xs <- xxs]))
