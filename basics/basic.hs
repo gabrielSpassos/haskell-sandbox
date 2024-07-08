@@ -4,8 +4,7 @@ main = do
     putStrLn ("And sample: " ++ show Main.and)
     putStrLn ("Or sample: " ++ show Main.or)
     putStrLn ("Not sample: " ++ show Main.negate)
-    putStrLn ("Equals sample: " ++ show equals)
-    putStrLn ("Not Equals sample: " ++ show notEquals)
+    equalityFuntions
     putStrLn ("5 + 4.0: " ++ show add)
     putStrLn ("Successor of 99: " ++ show (successor 99))
     putStrLn ("Min between 3.2 and 3.1: " ++ show (minimal 3.2 3.1))
@@ -29,8 +28,14 @@ or = False || True
 negate = not False
 
 -- equality 
-equals = 7 == 8
-notEquals = 7 /= 8
+equalityFuntions = do
+    putStrLn ("7 == 7, is: " ++ show (7 == 7))
+    putStrLn ("7 == 8, is: " ++ show (7 == 8))
+    putStrLn ("7 != 7, is: " ++ show (7 /= 7))
+    putStrLn ("7 != 8, is: " ++ show (7 /= 8))
+    putStrLn ("Compare strings Abrakadabra and Zebra: " ++ show ("Abrakadabra" `compare` "Zebra"))
+    putStrLn ("Compare numbers 5 and 3: " ++ show (5 `compare` 3))
+    putStrLn ("Compare strings Zebra and Zebra: " ++ show ("Zebra" `compare` "Zebra"))
 
 -- math operations
 add = 5 + 4.0
