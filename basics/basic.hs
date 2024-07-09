@@ -1,4 +1,4 @@
-main = do 
+main = do
     putStrLn "Basic POC"
     putStrLn ("Factorial 4: " ++ show (factorial 4))
     putStrLn ("And sample: " ++ show Main.and)
@@ -14,6 +14,7 @@ main = do
     rangeFunctions
     listComprehensionFunctions
     tupleFunctions
+    patternMachingFunctions
 
 -- create function
 factorial 0 = 1
@@ -112,3 +113,13 @@ tupleFunctions = do
     putStrLn ("Combine different size lists into pairs: " ++ show (zip [1..10] ["Hello", "World", "!"]))
     putStrLn ("Combine infinite and finite lists into pairs: " ++ show (zip [100..] ["apple", "bannana", "grape"]))
     putStrLn ("Triangle with perimeter is 24:" ++ show ([(a,b,c) | c <- [1..10], b <- [1..c], a <- [1..b], a^2 + b^2 == c^2, a+b+c == 24]))
+
+-- pattern maching
+lucky :: (Integral x) => x -> String
+lucky 7 = "LUCKY NUMBER!"
+lucky x = "Not so lucky"
+
+patternMachingFunctions = do
+    putStrLn "Pattern Matching"
+    putStrLn ("Is 9 lucky: " ++ lucky 9)
+    putStrLn ("Is 7 lucky: " ++ lucky 7)
