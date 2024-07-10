@@ -15,6 +15,8 @@ main = do
     listComprehensionFunctions
     tupleFunctions
     patternMatchingFunctions
+    guardsFunctions
+    whereFunctions
 
 -- create function
 factorial 0 = 1
@@ -54,7 +56,7 @@ doubleIfSmallerThanTen x = if x > 10
 numbers = [1,2,3,4]
 
 listFunctions = do
-    putStrLn "Lists"
+    putStrLn "** Lists **"
     -- will add the right list on end of left list
     putStrLn ("Add on end of list:" ++ show (numbers ++ [9,10,11,12,3]))
     -- will add the left list on start of right list
@@ -82,7 +84,7 @@ listFunctions = do
     putStrLn ("Check if 7 is on numbers list: " ++ show (7 `elem` numbers))
 
 rangeFunctions = do
-    putStrLn "Ranges"
+    putStrLn "** Ranges **"
     putStrLn ("Numbers sequence: " ++ show [1..20])
     putStrLn ("Alphabet sequence: " ++ show ['a'..'z'])
     putStrLn ("Letters sequence: " ++ show ['L'..'Z'])
@@ -96,7 +98,7 @@ rangeFunctions = do
 
 xxs = [[1,3,5,2,3,1,2,4,5],[1,2,3,4,5,6,7,8,9],[1,2,4,2,1,6,3,1,3,2,3,6]]
 listComprehensionFunctions = do
-    putStrLn "List Comprehension"
+    putStrLn "** List Comprehension **"
     putStrLn ("Get double of numbers: " ++ show ([x*2 | x <- [1..10]]))
     putStrLn ("Get double of numbers, if double >= 14: " ++ show ([x*2 | x <- [1..10], x*2 >= 14]))
     putStrLn ("Numbers that the X/7 the remainder == 3: " ++ show ([x | x <- [50..100], x `mod` 7 == 3]))
@@ -106,7 +108,7 @@ listComprehensionFunctions = do
     putStrLn ("Nested lists: " ++ show ([[x | x <- xs, even x] | xs <- xxs]))
 
 tupleFunctions = do
-    putStrLn "Tuples"
+    putStrLn "** Tuples **"
     putStrLn ("First item of pair: " ++ show (fst (8,11)))
     putStrLn ("Second item of pair: " ++ show (snd ("FOO",True)))
     putStrLn ("Combine lists into pairs: " ++ show (zip [1..5] ["one", "two", "three", "four", "five"]))
@@ -132,10 +134,47 @@ thirdOfTriple :: (a, b, c) -> c
 thirdOfTriple (_, _, z) = z
 
 patternMatchingFunctions = do
-    putStrLn "Pattern Matching"
+    putStrLn "** Pattern Matching **"
     putStrLn ("Is 9 lucky: " ++ lucky 9)
     putStrLn ("Is 7 lucky: " ++ lucky 7)
     putStrLn ("Add vectors (1, 2) (3, 4): " ++ show (addVectors (1, 2) (3, 4)))
     putStrLn ("First of triple (1, 2, 3): " ++ show (firstOfTriple (1, 2, 3)))
     putStrLn ("Second of triple (1, 2, 3): " ++ show (secondOfTriple (1, 2, 3)))
     putStrLn ("Third of triple (1, 2, 3): " ++ show (thirdOfTriple (1, 2, 3)))
+
+-- guards
+imcDisplay :: (RealFloat a) => a -> String
+imcDisplay imc
+    | imc <= 18.5 = "You are underweight!"
+    | imc <= 25 = "You are on okay weight!"
+    | imc <= 30 = "You are overweight!"
+    | otherwise = "You are obese!"
+
+calculateImc :: (RealFloat a) => a -> a -> a
+calculateImc weight height = weight / height ^ 2
+
+guardsFunctions = do
+    putStrLn "** Guards **"
+    putStrLn ("My weight 85, my height 1.83. My IMC: " ++ show (calculateImc 85 1.83) ++ " IMC result: " ++ imcDisplay (calculateImc 85 1.83))
+
+-- where
+imcWithWhere :: (RealFloat a) => a -> a -> String 
+imcWithWhere weight height
+    | imc <= skinny = "You are underweight!"
+    | imc <= normal = "You are on okay weight!"
+    | imc <= fat = "You are overweight!"
+    | otherwise = "You are obese!"
+    where imc = weight / height ^ 2
+          skinny = 18.5
+          normal = 25
+          fat = 30
+
+initials :: String -> String -> String
+initials firstName lastName = [f] ++ "." ++ [l] ++ "."
+    where (f:_) = firstName
+          (l:_) = lastName
+
+whereFunctions = do 
+    putStrLn "** Where **"
+    putStrLn ("My weight 85, my height 1.83. My IMC: " ++ imcWithWhere 85 1.83)
+    putStrLn ("My Name is Gabriel Passos, my initials are: " ++ initials "Gabriel" "Passos")
