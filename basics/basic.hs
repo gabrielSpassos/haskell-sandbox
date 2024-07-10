@@ -14,7 +14,7 @@ main = do
     rangeFunctions
     listComprehensionFunctions
     tupleFunctions
-    patternMachingFunctions
+    patternMatchingFunctions
 
 -- create function
 factorial 0 = 1
@@ -114,12 +114,28 @@ tupleFunctions = do
     putStrLn ("Combine infinite and finite lists into pairs: " ++ show (zip [100..] ["apple", "bannana", "grape"]))
     putStrLn ("Triangle with perimeter is 24:" ++ show ([(a,b,c) | c <- [1..10], b <- [1..c], a <- [1..b], a^2 + b^2 == c^2, a+b+c == 24]))
 
--- pattern maching
+-- pattern matching
 lucky :: (Integral x) => x -> String
 lucky 7 = "LUCKY NUMBER!"
 lucky x = "Not so lucky"
 
-patternMachingFunctions = do
+addVectors :: (Num a) => (a, a) -> (a, a) -> (a, a)
+addVectors (x1, y1) (x2, y2) = (x1 + x2, y1 + y2)
+
+firstOfTriple :: (a, b, c) -> a
+firstOfTriple (x, _, _) = x
+
+secondOfTriple :: (a, b, c) -> b
+secondOfTriple (_, y, _) = y
+
+thirdOfTriple :: (a, b, c) -> c
+thirdOfTriple (_, _, z) = z
+
+patternMatchingFunctions = do
     putStrLn "Pattern Matching"
     putStrLn ("Is 9 lucky: " ++ lucky 9)
     putStrLn ("Is 7 lucky: " ++ lucky 7)
+    putStrLn ("Add vectors (1, 2) (3, 4): " ++ show (addVectors (1, 2) (3, 4)))
+    putStrLn ("First of triple (1, 2, 3): " ++ show (firstOfTriple (1, 2, 3)))
+    putStrLn ("Second of triple (1, 2, 3): " ++ show (secondOfTriple (1, 2, 3)))
+    putStrLn ("Third of triple (1, 2, 3): " ++ show (thirdOfTriple (1, 2, 3)))
