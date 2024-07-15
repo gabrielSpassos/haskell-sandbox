@@ -25,4 +25,5 @@ cabal init --interactive
     - [X] https://learnyouahaskell.com/introduction
     - [X] https://learnyouahaskell.com/starting-out
     - [x] https://learnyouahaskell.com/types-and-typeclasses
-    - [ ] https://learnyouahaskell.com/syntax-in-functions
+    - [x] https://learnyouahaskell.com/syntax-in-functions
+    - [ ] https://learnyouahaskell.com/recursion

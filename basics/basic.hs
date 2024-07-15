@@ -17,6 +17,7 @@ main = do
     patternMatchingFunctions
     guardsFunctions
     whereFunctions
+    letFunctions
 
 -- create function
 factorial 0 = 1
@@ -178,3 +179,14 @@ whereFunctions = do
     putStrLn "** Where **"
     putStrLn ("My weight 85, my height 1.83. My IMC: " ++ imcWithWhere 85 1.83)
     putStrLn ("My Name is Gabriel Passos, my initials are: " ++ initials "Gabriel" "Passos")
+
+-- let
+cylinder :: (RealFloat a) => a -> a -> a
+cylinder radius height = 
+    let sideArea = 2 * pi * radius * height
+        topArea = pi * radius ^ 2
+    in sideArea + 2 * topArea
+
+letFunctions = do
+    putStrLn "** Let **"
+    putStrLn ("Cylinder's surface radius: 2 height: 4.5. Result: " ++ show (cylinder 2 4.5))
