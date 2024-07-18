@@ -8,12 +8,19 @@ license-file:       LICENSE
 author:             Gabriel Passos
 maintainer:         gabrielsantos45725@gmail.com
 -- copyright:
+category:           Development
 build-type:         Simple
 extra-doc-files:    CHANGELOG.md
 -- extra-source-files:
 
 common warnings
     ghc-options: -Wall
+
+library online-solution-lib
+    exposed-modules:  OnlineSolution
+    hs-source-dirs:   src
+    build-depends:    base ^>=4.17
+    default-language: Haskell2010
 
 executable bin-packing-problem-poc
     import:           warnings
@@ -24,11 +31,9 @@ executable bin-packing-problem-poc
     hs-source-dirs:   app
     default-language: Haskell2010
 
-test-suite test-OnlineSolution
-  type:                exitcode-stdio-1.0
-  hs-source-dirs:      tests
-                       .
-  default-language:    Haskell2010
-  main-is:             OnlineSolutionTests.hs
-  other-modules:       Modules.OnlineSolution
-  build-depends:       base ^>=4.17, HUnit ^>=1.6
+test-suite unit-tests
+    type:             exitcode-stdio-1.0
+    main-is:          OnlineSolutionTests.hs
+    build-depends:    base ^>=4.17, HUnit ^>=1.6, online-solution-lib
+    hs-source-dirs:   tests
+    default-language: Haskell2010
