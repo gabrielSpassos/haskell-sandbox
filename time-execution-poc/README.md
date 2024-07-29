@@ -2,12 +2,17 @@
 
 ### Usage
 
-1. Compile code
+1. Install lib
+```bash
+cabal install --lib time-1.12.2
+```
+
+2. Compile code
 ```bash
 ghc main.hs
 ```
 
-2. Execute code
+3. Execute code
 ```bash
 ./main
 ```
