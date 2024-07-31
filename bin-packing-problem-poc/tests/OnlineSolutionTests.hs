@@ -1,7 +1,8 @@
 module Main (main) where
 
-import OnlineSolution
+import OnlineSolution ( nextFit )
 import Test.HUnit
+    ( assertEqual, runTestTT, Counts(failures), Test(..) )
 import qualified System.Exit as Exit
 
 testNextFitReturn3 :: Test
