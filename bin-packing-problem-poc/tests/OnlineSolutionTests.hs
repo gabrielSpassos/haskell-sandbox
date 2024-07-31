@@ -22,6 +22,5 @@ tests = TestList [
 
 main :: IO()
 main = do
-    nextFitTimeTrackerMain
     result <- runTestTT tests
     if failures result > 0 then Exit.exitFailure else Exit.exitSuccess

@@ -19,7 +19,7 @@ common warnings
 library online-solution-lib
     exposed-modules:  OnlineSolution
     hs-source-dirs:   src
-    build-depends:    base ^>=4.17, time^>=1.12.2
+    build-depends:    base ^>=4.17
     default-language: Haskell2010
 
 executable bin-packing-problem-poc
@@ -27,7 +27,7 @@ executable bin-packing-problem-poc
     main-is:          Main.hs
     -- other-modules:
     -- other-extensions:
-    build-depends:    base ^>=4.17.2.1
+    build-depends:    base ^>=4.17.2.1, time^>=1.12.2, online-solution-lib
     hs-source-dirs:   app
     default-language: Haskell2010
 
