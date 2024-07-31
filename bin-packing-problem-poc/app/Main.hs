@@ -1,7 +1,7 @@
 module Main where
 
-import OnlineSolution
-import Data.Time
+import OnlineSolution ( nextFit )
+import Data.Time ( diffUTCTime, getCurrentTime )
 
 main :: IO ()
 main = do 
