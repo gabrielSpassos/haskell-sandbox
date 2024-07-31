@@ -15,9 +15,11 @@ nextFitTimeTracker = do
     putStrLn "Next Fit completed"
 
 timeFunction :: IO () -> IO ()
+-- the do is to execute multiple operations
 timeFunction function = do
-   startTime <- getCurrentTime
-   function
-   endTime <- getCurrentTime
-   let diff = diffUTCTime endTime startTime
-   putStrLn $ "Execution Time: " ++ show diff
+    -- the symbol <- is executing the function "getCurrentTime" and storing the output on the variable startTime
+    startTime <- getCurrentTime
+    function
+    endTime <- getCurrentTime
+    let diff = diffUTCTime endTime startTime
+    putStrLn ("Execution Time: " ++ show diff)

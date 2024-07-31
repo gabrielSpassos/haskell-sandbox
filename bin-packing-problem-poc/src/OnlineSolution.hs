@@ -8,7 +8,11 @@ nextFit weights binCapacity = nextFitHelper weights binCapacity binCapacity 0
 nextFitHelper :: [Int] -> Int -> Int -> Int -> Int
 -- No weights left, add + 1 because start with 0 bins
 nextFitHelper [] _ _ result = result + 1
+
 -- (weight:remainingWeights) split only the head from the list
+-- using haskell guards
+  -- if weight > binRemainingCapacity execute comment
+  -- catch all 
 nextFitHelper (weight:remainingWeights) binCapacity binRemainingCapacity result
   | weight > binRemainingCapacity = nextFitHelper remainingWeights binCapacity (binCapacity - weight) (result + 1)
   | otherwise = nextFitHelper remainingWeights binCapacity (binRemainingCapacity - weight) result
