@@ -2,6 +2,18 @@
 
 > https://www.geeksforgeeks.org/bin-packing-problem-minimize-number-of-used-bins/
 
+# Project Structure 
+```
+bin-packing-problem-poc             # Our project folder
+├─ app                              # Executable project folder
+│  └─ Main.hs                       # Our main file
+├─ src                              # Folder handled as lib for app project
+│  └─ OnlineSolution.hs             # File containing solution to the problem
+├─ tests                            # Folder that contains tests from src folder
+│  └─ OnlineSolutionTests.hs        # Our tests of solution 
+└─ bin-packing-problem-poc.cabal    # Cabal file to define project structure, dependencies, properties
+```
+
 ## Usage
 
 1. Execute app
