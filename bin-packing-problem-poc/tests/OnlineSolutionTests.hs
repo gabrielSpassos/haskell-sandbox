@@ -6,7 +6,7 @@ import Test.HUnit
 import qualified System.Exit as Exit
 
 testNextFitReturn3 :: Test
-testNextFitReturn3 = TestCase (assertEqual "Should return 3" 3 (nextFit [4, 8, 1, 4, 2, 1] 10))
+testNextFitReturn3 = TestCase ((assertEqual "Should return 3" 3) (nextFit [4, 8, 1, 4, 2, 1] 10))
 
 testNextFitReturn4 :: Test
 testNextFitReturn4 = TestCase (assertEqual "Should return 4" 4 (nextFit [9, 8, 2, 2, 5, 4] 10))
@@ -24,4 +24,6 @@ tests = TestList [
 main :: IO()
 main = do
     result <- runTestTT tests
-    if failures result > 0 then Exit.exitFailure else Exit.exitSuccess
+    if failures result > 0 
+        then Exit.exitFailure 
+        else Exit.exitSuccess

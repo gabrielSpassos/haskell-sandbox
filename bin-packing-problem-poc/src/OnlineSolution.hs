@@ -1,9 +1,11 @@
 module OnlineSolution where
 
--- When processing next item, check if it fits in the same bin as the last item. Use a new bin only if it does not.
+-- When processing next item, check if it fits in the same bin as the last item.
+-- Use a new bin only if it does not.
 nextFit :: [Int] -> Int -> Int
 nextFit weights binCapacity = nextFitHelper weights binCapacity binCapacity 0
 
+-- Pattern matching to have two implementations of nextFitHelper
 -- Helper function with additional parameters to keep track of the remaining capacity and bin count
 nextFitHelper :: [Int] -> Int -> Int -> Int -> Int
 -- No weights left, add + 1 because start with 0 bins
